@@ -63,6 +63,24 @@ public class ArticleController {
                 {
                  name = "";
                 }
+
+                String lng;
+                try {
+                    // lat = jobj.getJSONObject("geo").getJSONArray("coordinates").getString(0);
+                    lng = Float.toString(jobj.getJSONObject("geo").getJSONArray("coordinates").getFloat(0));
+
+                }
+                catch (JSONException excep) {
+                    lng = "";
+                }
+
+                String lat;
+                try {
+                    lat = Float.toString(jobj.getJSONObject("geo").getJSONArray("coordinates").getFloat(1));
+                }
+                catch (JSONException excep) {
+                    lat = "";
+                }
                 //System.out.println("3");
                 /*try{
 
@@ -108,7 +126,7 @@ public class ArticleController {
                 }*/
                 //System.out.println("Name: " + userName);
                 // System.out.println("Content: " + content);
-                tweets.addElement(new Article(userName,content,urlTitle,date,picture, tweetid,name));
+                tweets.addElement(new Article(userName,content,urlTitle,date,picture, tweetid,name,lng,lat));
                 line = br.readLine();
             }
             result = sb.toString();
@@ -133,7 +151,7 @@ public class ArticleController {
 
             for (Integer k = 0; k < tweets.size(); ++k) {
                 articles.add(new Article(tweets.get(k).getUserName(), tweets.get(k).getContent(), tweets.get(k).getUrlTitles(), tweets.get(k).getDate(),
-                        tweets.get(k).getPicture(),tweets.get(k).getTweetid(),tweets.get(k).getName()));
+                        tweets.get(k).getPicture(),tweets.get(k).getTweetid(),tweets.get(k).getName(),tweets.get(k).getLng(),tweets.get(k).getLat()));
 
             }
             tweets.clear();

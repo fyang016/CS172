@@ -61,5 +61,12 @@
 }
 
 agm-map {
-    height: 300px;
+    display: block;
+    margin: 0 auto;
+    height: 400px;
+    width: 700px;
+}
+
+.agmSubtitle {
+    text-align:center;
 }

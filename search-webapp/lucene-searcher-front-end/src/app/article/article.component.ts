@@ -21,8 +21,10 @@ export class ArticleComponent implements OnInit {
 
   lati:any;
   long:any;
-  zoomSetting:int;
-  zoomSetting = 6;
+
+  multiLati: number[];
+  multiLong: number[];
+  zoomSetting = 7;
 
   ngOnInit() {
       this.articleService.getIpAddress().subscribe(data => {
@@ -36,10 +38,11 @@ export class ArticleComponent implements OnInit {
   search(query: string) {
     this.lastSearch = query;
 
-    this.zoomSetting = 3;
-
     this.articleService.getArticles(query)
-        .subscribe(articles => this.articles = articles);
+        .subscribe(articles => {
+          this.articles = articles;
+          
+         });
 
 
   }

@@ -54,13 +54,26 @@
     [longitude]="long"
     [markerClickable]="true"
     [opacity]="0.5"
-    [title]="'You are here'"></agm-marker>
+    [title]="'You are here: ' + lati + ', ' + long"></agm-marker>
+  <agm-marker
+    [latitude]="chosenLatitude"
+    [longitude]="chosenLongitude"
+    [title]="chosenLatitude + ', ' + chosenLongitude"
+    *ngIf="locationChosen"></agm-marker>
   <agm-circle
     [latitude]="lati + 0.0"
     [longitude]="long + 0.0"
     [radius]="160934.4"
     [fillColor]="'red'"
+    [clickable]="false"
     [circleDraggable]="false"
     [editable]="false">
   </agm-circle>
+
 </agm-map>
+<div class="agmSubtitle">
+  Faded marker shows your current location. Circle represents the 100-mile radius.
+  <br>
+  Hover over a marker for its coordinates.
+</div>
+
