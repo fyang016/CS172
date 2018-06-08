@@ -4,12 +4,12 @@ public class tweets{
     public String place;
     public String hashtags;
     public String urlTitles;
-    public String lng;
-    public String lat;
+    public Float lng;
+    public Float lat;
 
     public tweets(){}
 
-    public tweets(String userName, String content, String place, String hashtags, String urlTitles, String lng, String lat) {
+    public tweets(String userName, String content, String place, String hashtags, String urlTitles, Float lng, Float lat) {
         this.userName = userName;
         this.content = content;
         this.place = place;
@@ -60,13 +60,13 @@ public class tweets{
         return userName;
     }
 
-    public String getLng() { return lng; }
+    public Float getLng() { return lng; }
 
-    public void setLng(String lng) { this.lng = lng; }
+    public void setLng(Float lng) { this.lng = lng; }
 
-    public String getLat() { return lat; }
+    public Float getLat() { return lat; }
 
-    public void setLat(String lat) { this.lat = lat; }
+    public void setLat(Float lat) { this.lat = lat; }
 
     public String toString() {
         return String.format("Tweets[userName=%s, content=%s, urlTitles=%s]", userName, content, urlTitles);

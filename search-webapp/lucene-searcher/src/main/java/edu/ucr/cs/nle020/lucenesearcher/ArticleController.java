@@ -3,10 +3,12 @@ package edu.ucr.cs.nle020.lucenesearcher;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -64,22 +66,22 @@ public class ArticleController {
                  name = "";
                 }
 
-                String lng;
+                Float lng;
                 try {
                     // lat = jobj.getJSONObject("geo").getJSONArray("coordinates").getString(0);
-                    lng = Float.toString(jobj.getJSONObject("geo").getJSONArray("coordinates").getFloat(0));
+                    lng = jobj.getJSONObject("geo").getJSONArray("coordinates").getFloat(0);
 
                 }
                 catch (JSONException excep) {
-                    lng = "";
+                    lng = 0.0f;
                 }
 
-                String lat;
+                Float lat;
                 try {
-                    lat = Float.toString(jobj.getJSONObject("geo").getJSONArray("coordinates").getFloat(1));
+                    lat = jobj.getJSONObject("geo").getJSONArray("coordinates").getFloat(1);
                 }
                 catch (JSONException excep) {
-                    lat = "";
+                    lat = 0.0f;
                 }
                 //System.out.println("3");
                 /*try{

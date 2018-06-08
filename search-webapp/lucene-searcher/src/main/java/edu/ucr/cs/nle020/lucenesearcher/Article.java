@@ -11,8 +11,8 @@ public class Article {
     public String picture;
     public String tweetid;
     public String name;
-    public String lng;
-    public String lat;
+    public Float lng;
+    public Float lat;
 
 
 
@@ -50,15 +50,15 @@ public class Article {
         this.name = name;
     }
 
-    public String getLng() { return lng; }
+    public Float getLng() { return lng; }
 
-    public void setLng(String lng) { this.lng = lng; }
+    public void setLng(Float lng) { this.lng = lng; }
 
-    public String getLat() { return lat; }
+    public Float getLat() { return lat; }
 
-    public void setLat(String lat) { this.lat = lat; }
+    public void setLat(Float lat) { this.lat = lat; }
 
-    public Article(String userName, String content, String urlTitles, String date, String picture, String tweetid, String name, String lng, String lat) {
+    public Article(String userName, String content, String urlTitles, String date, String picture, String tweetid, String name, Float lng, Float lat) {
         this.userName = userName;
         this.content = content;
         //this.place = place;

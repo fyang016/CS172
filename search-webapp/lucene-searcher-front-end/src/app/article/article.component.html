@@ -28,7 +28,7 @@
         <ul>
           <li> {{article.content}}</li>
           <li> URL Title: {{article.urlTitles}} </li>
-          <li> </li>
+          <li> {{article.lng}} {{article.lat}}</li>
           <br>
         </ul>
       </td>
@@ -37,43 +37,51 @@
   </tr>
 
   </table>
-</ul>
 
-<h4 *ngIf="lastSearch">Last search query: <i>"{{lastSearch}}"</i></h4>
-
+  <h4 *ngIf="lastSearch">Last search query: <i>"{{lastSearch}}"</i></h4>
 
 
-<agm-map
-  [zoom]="zoomSetting"
-  [latitude]="lati"
-  [longitude]="long"
-  (mapClick)="onChoseLocation($event)">
 
-  <agm-marker
+  <agm-map
+    [zoom]="zoomSetting"
     [latitude]="lati"
     [longitude]="long"
-    [markerClickable]="true"
-    [opacity]="0.5"
-    [title]="'You are here: ' + lati + ', ' + long"></agm-marker>
-  <agm-marker
-    [latitude]="chosenLatitude"
-    [longitude]="chosenLongitude"
-    [title]="chosenLatitude + ', ' + chosenLongitude"
-    *ngIf="locationChosen"></agm-marker>
-  <agm-circle
-    [latitude]="lati + 0.0"
-    [longitude]="long + 0.0"
-    [radius]="160934.4"
-    [fillColor]="'red'"
-    [clickable]="false"
-    [circleDraggable]="false"
-    [editable]="false">
-  </agm-circle>
+    (mapClick)="onChoseLocation($event)">
 
-</agm-map>
-<div class="agmSubtitle">
-  Faded marker shows your current location. Circle represents the 100-mile radius.
-  <br>
-  Hover over a marker for its coordinates.
-</div>
+    <agm-marker
+      [latitude]="lati"
+      [longitude]="long"
+      [markerClickable]="true"
+      [opacity]="0.5"
+      [title]="'You are here: ' + lati + ', ' + long"></agm-marker>
+    <agm-marker
+      [latitude]="chosenLatitude"
+      [longitude]="chosenLongitude"
+      [title]="chosenLatitude + ', ' + chosenLongitude"
+      *ngIf="locationChosen"></agm-marker>
+    <agm-marker
+
+      *ngFor="let x of multiLati; let i = index"
+      [latitude]="multiLong[i]"
+      [longitude]="multiLati[i]"
+      [title]="multiLong[i] + ', ' + multiLati[i]"></agm-marker>
+    <agm-circle
+      [latitude]="lati + 0.0"
+      [longitude]="long + 0.0"
+      [radius]="160934.4"
+      [fillColor]="'red'"
+      [clickable]="false"
+      [circleDraggable]="false"
+      [editable]="false">
+    </agm-circle>
+
+  </agm-map>
+  <div class="agmSubtitle">
+    Faded marker shows your current location. Circle represents the 100-mile radius.
+    <br>
+    Hover over a marker for its coordinates.
+  </div>
+</ul>
+
+
 

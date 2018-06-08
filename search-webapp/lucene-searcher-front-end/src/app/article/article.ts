@@ -1,5 +1,9 @@
 export class Article {
-  id: number;
-  title: string;
-  body: string;
+  userName: string;
+  content: string;
+  place: string;
+  hashtags: string;
+  urlTitles: string;
+  lng: number;
+  lat: number;
 }
