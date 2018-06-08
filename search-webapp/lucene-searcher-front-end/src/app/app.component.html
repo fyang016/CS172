@@ -1,0 +1,47 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+  <img width="100" alt="Angular Logo" src="../assets/twitter.png">
+</div>
+
+<app-article></app-article>
+
+<agm-map [zoom]="6" [latitude]="lati" [longitude]="long" (mapClick)="onChoseLocation($event)">
+  <agm-marker
+    [latitude]="lati"
+    [longitude]="long"
+    [markerClickable]="true"
+    [opacity]="0.5"
+    [title]="'You are here'"></agm-marker>
+  <!--
+  <agm-marker 
+    [latitude]="chosenLatitude" 
+    [longitude]="chosenLongitude"
+    *ngIf="locationChosen"></agm-marker>
+  <agm-marker
+    [latitude]="randomLatitude[0]"
+    [longitude]="randomLongitude[0]"></agm-marker>  
+  <agm-marker
+    [latitude]="randomLatitude[1]"
+    [longitude]="randomLongitude[1]"></agm-marker>  
+  <agm-marker
+    [latitude]="randomLatitude[2]"
+    [longitude]="randomLongitude[2]"></agm-marker>  
+  <agm-marker
+    [latitude]="randomLatitude[3]"
+    [longitude]="randomLongitude[3]"></agm-marker>  
+  <agm-marker
+    [latitude]="randomLatitude[4]"
+    [longitude]="randomLongitude[4]"></agm-marker>  
+  -->
+  <agm-circle
+    [latitude]="lati + 0.0"
+    [longitude]="long + 0.0"
+    [radius]="160934.4"
+    [fillColor]="'red'"
+    [circleDraggable]="false"
+    [editable]="false">
+  </agm-circle>
+</agm-map>

@@ -1,0 +1,30 @@
+<h1>Users</h1>
+<!-- Ordered list (numbered list) instead of unordered list (bullet points) -->
+<!--<ol>
+  <li *ngFor="let user of users$">
+    <img src="../../assets/default_profile_400x400.png" width="50" height="50">
+    <a routerLink="/details/{{user.id}}">{{ user.name }}</a>
+
+    <ul>
+      <li>{{ user.email }}</li>
+      <li><a href="http://{{ user.website }}">{{ user.website }}</a></li>
+    </ul>
+  </li>
+</ol>
+-->
+<table cellpadding="0" cellspacing="0" style="width:100%">
+  <tr *ngFor="let user of users$">
+    <td id="Info">
+      <img src="../../assets/default_profile_400x400.png" style="display:block" width="75" height="75">
+      <div class="information">
+        <a href="http://www.twitter.com/{{user.userName}}/status/{{tweetid}}"> {{ user.userName }}</a>
+        <ul>
+          <li>{{ user.email }}</li>
+          <li><a href="http://{{ user.website }}">{{ user.website }}</a></li>
+        </ul>
+      </div>
+    </td>
+    <td id="TwitterName"> @TwitterName </td>
+    <td id="Time"> 06/03/2018 <br> 08:46:22 AM </td>
+  </tr>
+</table>

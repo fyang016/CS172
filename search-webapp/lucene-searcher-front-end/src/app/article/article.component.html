@@ -1,0 +1,39 @@
+<div align="center">
+  <input #searchBox id="search-box" class="searchBox" style="width: 60%" placeholder="Enter query here..." (keyup.enter)="search(searchBox.value)"/>
+  <button (click)="search(searchBox.value)">Search</button>
+  <br>
+  <br>
+</div>
+
+<ul class="articles" *ngIf="articles">
+  <h2>Relevant Tweets:</h2>
+  <table cellpadding="0" cellspacing="0" style="width:100%">
+
+    <tr *ngFor="let article of articles">
+  <!--    <img src="../../assets/default_profile_400x400.png" width=75 height=75 align="top"> -->
+  
+      <!-- <span class="badge">{{article.id}}</span>    -->
+  <!--    {{article.id}}
+  
+      {{article.title | uppercase}}<span>: </span> {{article.body}}  -->
+      
+      <td id="Picture">
+        <img class="profilePic" src="{{article.picture}}" style="" width="75" height="75">
+      </td>
+      <td id="Text">
+        <a href="http://www.twitter.com/{{article.userName}}/status/{{article.tweetid}}"> {{article.userName }}</a>
+        <ul>
+          <li> {{article.content}}</li>
+          <li> URL Title: {{article.urlTitles}} </li>
+          <li> </li>
+          <br>
+        </ul>
+      </td>
+      <td id="TwitterName" valign="top"> @{{article.userName}} </td>
+      <td id="Time" valign="top"> {{article.date}} </td>
+  </tr>
+    
+  </table>
+</ul>
+
+<h4 *ngIf="lastSearch">Last search query: <i>"{{lastSearch}}"</i></h4>
