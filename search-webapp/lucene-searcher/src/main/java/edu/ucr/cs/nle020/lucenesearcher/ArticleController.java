@@ -127,8 +127,8 @@ public class ArticleController {
         //Article art = new Article("superkristen", "wants to sleep", "athome");
         //tweets.add(0, art);
         for (Integer i = 0; i < 10; ++i) {
-            //String jsonData = readFile("/data/tweets" + i + ".json", tweets);
-            String jsonData = readFile("C:\\Users\\AdrenResi\\Downloads\\search-webapp_google_maps_location2\\search-webapp\\lucene-searcher\\src\\main\\java\\edu\\ucr\\cs\\nle020\\lucenesearcher\\data\\tweets" + i + ".json", tweets);
+            String jsonData = readFile("./src/main/java/edu/ucr/cs/nle020/lucenesearcher/data/tweets" + i + ".json", tweets);
+            // String jsonData = readFile("D:\\CS172\\CS172\\search-webapp\\lucene-searcher\\src\\main\\java\\edu\\ucr\\cs\\nle020\\lucenesearcher\\data\\tweets" + i + ".json", tweets);
             //JSONObject jobj = new JSONObject(jsonData);
             for (Integer k = 0; k < tweets.size(); ++k) {
                 articles.add(new Article(tweets.get(k).getUserName(), tweets.get(k).getContent(), tweets.get(k).getUrlTitles(), tweets.get(k).getDate(),
