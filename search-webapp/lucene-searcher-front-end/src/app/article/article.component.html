@@ -11,12 +11,13 @@
 
     <tr *ngFor="let article of articles">
   <!--    <img src="../../assets/default_profile_400x400.png" width=75 height=75 align="top"> -->
-  
+
       <!-- <span class="badge">{{article.id}}</span>    -->
   <!--    {{article.id}}
-  
+
       {{article.title | uppercase}}<span>: </span> {{article.body}}  -->
-      
+
+      <!-- -->
       <td id="Picture">
         <img class="profilePic" src="{{article.picture}}" style="" width="75" height="75">
       </td>
@@ -32,7 +33,7 @@
       <td id="TwitterName" valign="top"> @{{article.userName}} </td>
       <td id="Time" valign="top"> {{article.date}} </td>
   </tr>
-    
+
   </table>
 </ul>
 
